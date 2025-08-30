@@ -3,610 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2048 Games - Play Free Online Number Puzzle Game | Master the Ultimate Brain Challenge</title>
-    <meta name="description" content="Master the addictive 2048 games! Learn rules, scoring, strategies and play the ultimate number puzzle game for free. Challenge your brain with our premium 2048 gaming experience.">
-    <meta name="keywords" content="2048 games, online puzzle games, number games, brain games, free games, 2048 strategy, puzzle solver, math games">
+    <title>2048 Games - Play Free Online Number Puzzle Games | FreeGamesFlex</title>
+    <meta name="description" content="Play the best 2048 games online for free! Challenge your mind with this addictive number puzzle game. No download required - start playing instantly on any device.">
+    <meta name="keywords" content="2048 games, online games, puzzle games, number games, free games, brain games">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="FreeGamesFlex">
-    <link rel="canonical" href="https://www.freegamesflex.online/">
+    <link rel="canonical" href="https://freegamesflex.online/">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="2048 Games - Play Free Online Number Puzzle Game">
-    <meta property="og:description" content="Master the addictive 2048 games! Learn rules, scoring, strategies and play the ultimate number puzzle game for free.">
-    <meta property="og:url" content="https://www.freegamesflex.online/">
+    <meta property="og:title" content="2048 Games - Play Free Online Number Puzzle Games">
+    <meta property="og:description" content="Challenge your mind with the addictive 2048 number puzzle game. Play for free instantly on any device!">
+    <meta property="og:url" content="https://freegamesflex.online/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="FreeGamesFlex">
-    <meta property="og:image" content="https://www.freegamesflex.online/og-image.jpg">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="2048 Games - Play Free Online Number Puzzle Game">
-    <meta name="twitter:description" content="Master the addictive 2048 games! Learn rules, scoring, strategies and play for free.">
-    <meta name="twitter:image" content="https://www.freegamesflex.online/twitter-image.jpg">
+    <meta name="twitter:title" content="2048 Games - Play Free Online Number Puzzle Games">
+    <meta name="twitter:description" content="Challenge your mind with the addictive 2048 number puzzle game. Play for free instantly on any device!">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#6366f1',
-                        'secondary': '#8b5cf6',
-                        'accent': '#06b6d4',
-                        'dark': '#0f172a',
-                        'light': '#f8fafc'
-                    }
-                }
-            }
-        }
-    </script>
     
     <!-- Custom Styles -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        * {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        :root {
+            --apple-blue: #007AFF;
+            --apple-gray: #8E8E93;
+            --apple-light-gray: #F2F2F7;
+            --apple-dark-gray: #1C1C1E;
         }
         
-        .gradient-bg {
+        .apple-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 16px;
+        }
+        
+        .hero-gradient {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        iframe {
+            border-radius: 12px;
         }
         
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .game-frame {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-radius: 1rem;
-            overflow: hidden;
-        }
-        
-        .section-divider {
-            background: linear-gradient(90deg, transparent 0%, #e2e8f0 20%, #e2e8f0 80%, transparent 100%);
-            height: 1px;
-        }
-        
-        .number-tile {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-weight: 700;
-            border-radius: 0.5rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 3rem;
-            height: 3rem;
-            margin: 0.25rem;
-        }
-        
-        .scroll-smooth {
-            scroll-behavior: smooth;
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 scroll-smooth">
-    <!-- Navigation -->
-    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">2</span>
-                    </div>
-                    <span class="text-xl font-bold gradient-text">FreeGamesFlex</span>
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">🎮 FreeGamesFlex</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#play" class="text-gray-700 hover:text-primary transition-colors font-medium">Play Now</a>
-                    <a href="#rules" class="text-gray-700 hover:text-primary transition-colors font-medium">How to Play</a>
-                    <a href="#scoring" class="text-gray-700 hover:text-primary transition-colors font-medium">Scoring</a>
-                    <a href="#strategies" class="text-gray-700 hover:text-primary transition-colors font-medium">Strategies</a>
-                    <a href="#faq" class="text-gray-700 hover:text-primary transition-colors font-medium">FAQ</a>
-                </div>
-                <button class="md:hidden p-2 rounded-lg bg-gray-100">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#game" class="text-gray-700 hover:text-blue-600 transition-colors">Play Game</a>
+                    <a href="#features" class="text-gray-700 hover:text-blue-600 transition-colors">Features</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20 lg:py-32 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 number-tile animate-float">2</div>
-            <div class="absolute top-32 right-20 number-tile animate-float" style="animation-delay: -1s;">4</div>
-            <div class="absolute bottom-20 left-20 number-tile animate-float" style="animation-delay: -2s;">8</div>
-            <div class="absolute bottom-32 right-10 number-tile animate-float" style="animation-delay: -3s;">16</div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                Master 2048 Games
-                <span class="block text-3xl lg:text-4xl font-medium mt-4 opacity-90">
-                    The Ultimate Number Puzzle Challenge
-                </span>
+    <section class="hero-gradient text-white py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Play 2048 Games Online
             </h1>
-            <p class="text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed opacity-95">
-                Dive into the most addictive number puzzle game ever created. Combine tiles, reach 2048, and challenge your strategic thinking in this award-winning brain game.
+            <p class="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto">
+                Challenge your mind with the most addictive number puzzle game on the web - completely free and instantly playable!
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#play" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
-                    🎮 Play Now - Free
-                </a>
-                <a href="#rules" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-primary transition-all">
-                    📖 Learn How to Play
-                </a>
-            </div>
-            <div class="mt-12 text-sm opacity-80">
-                ✨ No Download Required • 🆓 100% Free • 📱 Mobile Friendly
-            </div>
+            <a href="#game" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors apple-shadow">
+                Start Playing Now
+            </a>
         </div>
     </section>
 
     <!-- Game Section -->
-    <section id="play" class="py-20 bg-white">
+    <section id="game" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text">Play 2048 Games Now</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Experience the smooth, responsive gameplay of our premium 2048 game. Swipe or use arrow keys to combine tiles and reach the legendary 2048 tile!
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience 2048 Games</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Swipe to combine tiles and reach the coveted 2048 tile in this mind-bending puzzle adventure
                 </p>
             </div>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="game-frame bg-gradient-to-br from-gray-100 to-gray-200 p-4 lg:p-8">
+            <div class="game-container apple-shadow p-4 md:p-8 max-w-4xl mx-auto">
+                <div class="aspect-square md:aspect-video bg-white rounded-lg overflow-hidden">
                     <iframe 
-                        src="https://www.freegamesflex.online/2048.html" 
+                        src="https://2048game.com/" 
                         width="100%" 
-                        height="600" 
+                        height="100%" 
                         frameborder="0" 
                         allowfullscreen
-                        title="2048 Number Puzzle Game - Play Free Online"
-                        class="w-full rounded-lg bg-white"
+                        title="2048 Game - Number Puzzle"
+                        class="w-full h-full min-h-[400px] md:min-h-[500px]"
                         loading="lazy">
-                        <p>Your browser doesn't support iframes. <a href="https://www.freegamesflex.online/2048.html" target="_blank">Play 2048 Games here</a>.</p>
                     </iframe>
-                </div>
-                
-                <div class="mt-8 text-center">
-                    <div class="inline-flex items-center space-x-8 text-sm text-gray-600 bg-gray-100 px-6 py-3 rounded-full">
-                        <span>⌨️ Use Arrow Keys</span>
-                        <span>📱 Swipe on Mobile</span>
-                        <span>🎯 Reach 2048 to Win</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How to Play Section -->
-    <section id="rules" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">How to Play 2048 Games</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Master the fundamentals of 2048 with our comprehensive guide. Learn the rules, understand the mechanics, and start your journey to becoming a 2048 champion.
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold mb-4 flex items-center">
-                            <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">1</span>
-                            Basic Movement Rules
-                        </h3>
-                        <p class="text-gray-600 mb-4">Use arrow keys (desktop) or swipe gestures (mobile) to move all tiles in one of four directions: up, down, left, or right. All tiles slide as far as possible in the chosen direction.</p>
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <strong>Important:</strong> Every move shifts ALL tiles simultaneously, not just one tile at a time.
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold mb-4 flex items-center">
-                            <span class="bg-secondary text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">2</span>
-                            Tile Combination Mechanics
-                        </h3>
-                        <p class="text-gray-600 mb-4">When two tiles with identical numbers touch during movement, they merge into a single tile with double the value. For example: 2 + 2 = 4, 4 + 4 = 8, 8 + 8 = 16, and so on.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="number-tile text-sm">2</div>
-                            <span>+</span>
-                            <div class="number-tile text-sm">2</div>
-                            <span>=</span>
-                            <div class="number-tile text-sm">4</div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold mb-4 flex items-center">
-                            <span class="bg-accent text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4">3</span>
-                            Win & Lose Conditions
-                        </h3>
-                        <p class="text-gray-600 mb-4">
-                            <strong>Victory:</strong> Create a tile with the number 2048 to win the game.<br>
-                            <strong>Defeat:</strong> Game ends when the 4×4 grid is completely filled and no more moves are possible.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-2xl shadow-xl">
-                    <h3 class="text-2xl font-bold mb-6 text-center">Game Board Layout</h3>
-                    <div class="grid grid-cols-4 gap-2 bg-gray-200 p-4 rounded-lg mb-6">
-                        <div class="bg-gray-300 h-16 rounded flex items-center justify-center font-bold">2</div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-300 h-16 rounded flex items-center justify-center font-bold">4</div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-300 h-16 rounded flex items-center justify-center font-bold">8</div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-300 h-16 rounded flex items-center justify-center font-bold">2</div>
-                        <div class="bg-gray-300 h-16 rounded flex items-center justify-center font-bold">16</div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-300 h-16 rounded flex items-center justify-center font-bold">4</div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                        <div class="bg-gray-100 h-16 rounded"></div>
-                    </div>
-                    <p class="text-gray-600 text-sm text-center">4×4 grid with numbered tiles. New tiles (2 or 4) appear after each move.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scoring System Section -->
-    <section id="scoring" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">2048 Games Scoring System</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Understanding the scoring mechanics will help you maximize your points and achieve higher rankings in 2048 games.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="card-hover bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">+</div>
-                    <h3 class="text-xl font-bold mb-3">Merge Points</h3>
-                    <p class="text-gray-700">Earn points equal to the value of the newly created tile when merging identical numbers.</p>
-                    <div class="mt-4 p-3 bg-white rounded-lg">
-                        <div class="text-sm text-gray-600">Example: 32 + 32 = 64</div>
-                        <div class="font-bold text-primary">Score: +64 points</div>
-                    </div>
-                </div>
-                
-                <div class="card-hover bg-gradient-to-br from-purple-50 to-pink-100 p-8 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">🏆</div>
-                    <h3 class="text-xl font-bold mb-3">Milestone Bonuses</h3>
-                    <p class="text-gray-700">Receive bonus points for reaching significant tile values like 512, 1024, and 2048.</p>
-                    <div class="mt-4 p-3 bg-white rounded-lg">
-                        <div class="text-sm text-gray-600">Reaching 2048 tile</div>
-                        <div class="font-bold text-secondary">Bonus: +2048 points</div>
-                    </div>
-                </div>
-                
-                <div class="card-hover bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">⚡</div>
-                    <h3 class="text-xl font-bold mb-3">Chain Multipliers</h3>
-                    <p class="text-gray-700">Create consecutive merges in a single move to activate score multipliers.</p>
-                    <div class="mt-4 p-3 bg-white rounded-lg">
-                        <div class="text-sm text-gray-600">Multiple merges per move</div>
-                        <div class="font-bold text-accent">Multiplier: 1.5x - 2x</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-gray-50 p-8 rounded-2xl">
-                <h3 class="text-2xl font-bold mb-6 text-center">Scoring Progression Table</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white p-4 rounded-lg text-center">
-                        <div class="number-tile text-lg mb-2">2</div>
-                        <div class="text-sm text-gray-600">Base Tile</div>
-                        <div class="font-bold">2 Points</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg text-center">
-                        <div class="number-tile text-lg mb-2">64</div>
-                        <div class="text-sm text-gray-600">Mid Game</div>
-                        <div class="font-bold">64 Points</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg text-center">
-                        <div class="number-tile text-lg mb-2">512</div>
-                        <div class="text-sm text-gray-600">Advanced</div>
-                        <div class="font-bold">512 Points</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg text-center">
-                        <div class="number-tile text-lg mb-2">2048</div>
-                        <div class="text-sm text-gray-600">Victory!</div>
-                        <div class="font-bold">2048 Points</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Strategies Section -->
-    <section id="strategies" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Winning Strategies for 2048 Games</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Learn from 2048 experts and master advanced techniques to consistently achieve higher scores and reach the coveted 2048 tile.
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8 mb-12">
-                <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Corner Strategy</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">Keep your highest value tile in one corner and build around it. This prevents the highest tile from getting trapped in the middle.</p>
-                    <div class="bg-yellow-50 p-4 rounded-lg">
-                        <strong>Pro Tip:</strong> Choose a corner and stick with it throughout the entire game.
-                    </div>
-                </div>
-                
-                <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Row Building</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">Build rows in descending order from your chosen corner. This creates a natural merging path and prevents board clutter.</p>
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <strong>Example:</strong> 1024 → 512 → 256 → 128 in a single row.
-                    </div>
-                </div>
-                
-                <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414-1.414L9 5.586 7.707 4.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 4.586z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Patience is Key</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">Don't rush moves. Take time to evaluate each move and its consequences. One wrong move can ruin hours of progress.</p>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <strong>Remember:</strong> Quality over speed - think before you swipe!
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white p-8 rounded-2xl shadow-xl">
-                <h3 class="text-2xl font-bold mb-6 text-center">Advanced Techniques</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-lg font-semibold mb-4 flex items-center">
-                            <span class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
-                            The Snake Pattern
-                        </h4>
-                        <p class="text-gray-600 mb-4">Arrange tiles in a snake-like pattern, alternating directions on each row. This maximizes merging opportunities while maintaining organization.</p>
-                        
-                        <h4 class="text-lg font-semibold mb-4 flex items-center">
-                            <span class="w-6 h-6 bg-secondary text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
-                            Move Limitation
-                        </h4>
-                        <p class="text-gray-600">Use only 3 directions and avoid the fourth as much as possible. This prevents accidentally disrupting your organized structure.</p>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-semibold mb-4 flex items-center">
-                            <span class="w-6 h-6 bg-accent text-white rounded-full flex items-center justify-center text-sm mr-3">3</span>
-                            Merge Preparation
-                        </h4>
-                        <p class="text-gray-600 mb-4">Set up multiple merges before executing them. This prevents the board from filling up too quickly and creates scoring opportunities.</p>
-                        
-                        <h4 class="text-lg font-semibold mb-4 flex items-center">
-                            <span class="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm mr-3">4</span>
-                            Emergency Exits
-                        </h4>
-                        <p class="text-gray-600">Always keep escape routes open. Don't let your tiles get completely trapped with no merging possibilities.</p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 bg-white">
+    <section id="features" class="bg-white py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Why Our 2048 Games Stand Out</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Experience the perfect blend of classic gameplay and modern features in our premium 2048 gaming platform.
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Our 2048 Games?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Discover what makes our platform the ultimate destination for puzzle game enthusiasts
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
-                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🚀</div>
-                    <h3 class="text-xl font-semibold mb-3">Lightning Fast</h3>
-                    <p class="text-gray-600">Optimized performance ensures smooth gameplay with zero lag, even on slower devices.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-50 p-6 rounded-lg apple-shadow">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold mb-3">Instant Play</h3>
+                    <p class="text-gray-600">No downloads, no registration required. Start playing 2048 games immediately in your browser on any device.</p>
                 </div>
                 
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
-                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4">📱</div>
-                    <h3 class="text-xl font-semibold mb-3">Mobile Perfect</h3>
-                    <p class="text-gray-600">Responsive touch controls and mobile-optimized interface for the best gaming experience.</p>
+                <div class="feature-card bg-gray-50 p-6 rounded-lg apple-shadow">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold mb-3">Mobile Optimized</h3>
+                    <p class="text-gray-600">Perfectly responsive design ensures smooth gameplay on smartphones, tablets, and desktop computers.</p>
                 </div>
                 
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
-                    <div class="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4">💾</div>
-                    <h3 class="text-xl font-semibold mb-3">Auto Save</h3>
-                    <p class="text-gray-600">Your progress is automatically saved, so you can continue your game anytime, anywhere.</p>
+                <div class="feature-card bg-gray-50 p-6 rounded-lg apple-shadow">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold mb-3">Brain Training</h3>
+                    <p class="text-gray-600">Enhance your mathematical thinking, strategic planning, and problem-solving skills with every game.</p>
                 </div>
                 
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
-                    <div class="w-16 h-16 bg-yellow-500 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🏆</div>
-                    <h3 class="text-xl font-semibold mb-3">Score Tracking</h3>
-                    <p class="text-gray-600">Advanced scoring system with personal bests and achievement tracking.</p>
+                <div class="feature-card bg-gray-50 p-6 rounded-lg apple-shadow">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-3">Fast Loading</h3>
+                    <p class="text-gray-600">Lightning-fast performance with optimized code ensures minimal waiting time and maximum fun.</p>
+                </div>
+                
+                <div class="feature-card bg-gray-50 p-6 rounded-lg apple-shadow">
+                    <div class="text-4xl mb-4">🆓</div>
+                    <h3 class="text-xl font-semibold mb-3">Completely Free</h3>
+                    <p class="text-gray-600">Enjoy unlimited access to high-quality 2048 games without any hidden costs or premium subscriptions.</p>
+                </div>
+                
+                <div class="feature-card bg-gray-50 p-6 rounded-lg apple-shadow">
+                    <div class="text-4xl mb-4">🏆</div>
+                    <h3 class="text-xl font-semibold mb-3">Challenge Yourself</h3>
+                    <p class="text-gray-600">Progressive difficulty levels and various game modes to keep you engaged and entertained for hours.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Frequently Asked Questions</h2>
-                <p class="text-xl text-gray-600">
-                    Everything you need to know about playing 2048 games on our platform.
-                </p>
-            </div>
-            
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">What is 2048 games and how do I win?</h3>
-                    <p class="text-gray-600">2048 is a single-player sliding tile puzzle game where you combine numbered tiles to create a tile with the number 2048. Move tiles using arrow keys or swipe gestures, and when two tiles with the same number touch, they merge into one tile with double the value.</p>
-                </div>
+    <!-- About Section -->
+    <section id="about" class="bg-gray-50 py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">About 2048 Games</h2>
                 
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">Is this 2048 game really free to play?</h3>
-                    <p class="text-gray-600">Yes! Our 2048 games are completely free to play with no hidden costs, subscriptions, or in-app purchases. You can enjoy unlimited gameplay without any restrictions.</p>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p class="text-xl leading-relaxed mb-6">
+                        2048 is a captivating single-player sliding tile puzzle game that has taken the world by storm. Created by Italian web developer Gabriele Cirulli in 2014, this mathematical masterpiece combines simple mechanics with deeply engaging gameplay that appeals to players of all ages and skill levels.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold mt-8 mb-4">How to Play 2048 Games</h3>
+                    <p class="mb-4">
+                        The objective is straightforward yet challenging: combine numbered tiles by moving them in four directions (up, down, left, right) to create a tile with the number 2048. When two tiles with the same number touch, they merge into one tile with double the value. Each move generates a new tile (usually 2 or 4) in a random empty spot on the 4x4 grid.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold mt-8 mb-4">Strategic Gameplay Elements</h3>
+                    <p class="mb-4">
+                        Success in 2048 requires careful planning and strategic thinking. Players must consider tile positioning, anticipate future moves, and maintain space for new tiles while working toward larger combinations. The game ends when the grid is full and no more moves are possible, making efficient space management crucial for achieving high scores.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold mt-8 mb-4">Benefits of Playing 2048</h3>
+                    <p class="mb-4">
+                        Beyond entertainment, 2048 games offer numerous cognitive benefits. Regular play enhances mathematical reasoning, improves pattern recognition, develops strategic thinking, and boosts concentration skills. The game's progressive difficulty naturally adapts to your skill level, providing consistent mental stimulation without overwhelming complexity.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold mt-8 mb-4">Perfect for Everyone</h3>
+                    <p class="mb-6">
+                        Whether you're looking for a quick mental break during work, want to challenge yourself with a brain-teasing puzzle, or simply enjoy the satisfaction of reaching higher numbers, 2048 games provide the perfect balance of accessibility and depth. The game's clean interface and intuitive controls make it easy to learn but difficult to master.
+                    </p>
                 </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">Can I play 2048 on mobile devices?</h3>
-                    <p class="text-gray-600">Absolutely! Our 2048 game is fully responsive and optimized for mobile devices. You can play using touch gestures on smartphones and tablets with the same smooth experience as desktop.</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">What's the highest score possible in 2048?</h3>
-                    <p class="text-gray-600">While reaching 2048 is the main goal, you can continue playing to achieve higher tiles like 4096, 8192, or even beyond. The theoretical maximum depends on perfect play and luck with tile placement.</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">Are there any cheats or shortcuts in 2048?</h3>
-                    <p class="text-gray-600">There are no cheats in 2048 - it's all about strategy and skill! However, following proven strategies like the corner method and building in rows can significantly improve your chances of winning.</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold mb-3">Can I undo moves in your 2048 game?</h3>
-                    <p class="text-gray-600">Our 2048 game follows the classic rules where moves cannot be undone. This maintains the challenge and strategic thinking required. Plan your moves carefully!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="gradient-bg text-white py-20">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6">Ready to Master 2048 Games?</h2>
-            <p class="text-xl mb-8 opacity-95">
-                Join millions of players worldwide and start your journey to 2048 mastery. Challenge yourself with the most addictive number puzzle game ever created!
-            </p>
-            <a href="#play" class="inline-block bg-white text-primary px-12 py-4 rounded-full text-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
-                🎮 Start Playing Now
-            </a>
-            <div class="mt-8 text-sm opacity-80">
-                No registration required • Instant play • 100% Free Forever
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-gray-300 py-16">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">2</span>
-                        </div>
-                        <span class="text-xl font-bold text-white">FreeGamesFlex</span>
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold text-blue-400">🎮 FreeGamesFlex</span>
                     </div>
-                    <p class="text-gray-400 leading-relaxed">
-                        Your ultimate destination for free online 2048 games. Experience the best number puzzle gaming platform with premium features and smooth gameplay.
+                    <p class="text-gray-400 mb-4">
+                        Your ultimate destination for free online games. Play the best puzzle games, including 2048, directly in your browser.
                     </p>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Game Features</h4>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#play" class="hover:text-white transition-colors">Play 2048 Free</a></li>
-                        <li><a href="#rules" class="hover:text-white transition-colors">Game Rules</a></li>
-                        <li><a href="#scoring" class="hover:text-white transition-colors">Scoring System</a></li>
-                        <li><a href="#strategies" class="hover:text-white transition-colors">Winning Strategies</a></li>
+                        <li><a href="#game" class="hover:text-blue-400 transition-colors">Play 2048</a></li>
+                        <li><a href="#features" class="hover:text-blue-400 transition-colors">Game Features</a></li>
+                        <li><a href="#about" class="hover:text-blue-400 transition-colors">About</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Help & Support</h4>
+                    <h4 class="text-lg font-semibold mb-4">Game Info</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Game Stats</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>✅ 100% Free to Play</li>
-                        <li>✅ No Download Required</li>
-                        <li>✅ Mobile Optimized</li>
-                        <li>✅ Instant Loading</li>
-                        <li>✅ Auto Save Progress</li>
+                        <li>✅ Free to play</li>
+                        <li>✅ No download required</li>
+                        <li>✅ Mobile friendly</li>
+                        <li>✅ Safe & secure</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="section-divider mb-8"></div>
-            
-            <div class="text-center text-gray-400">
-                <p>&copy; 2025 FreeGamesFlex.online - Premium 2048 Games Platform. All rights reserved.</p>
-                <p class="mt-2 text-sm">Experience the ultimate number puzzle challenge with our free, high-quality 2048 games.</p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 FreeGamesFlex.online - Play 2048 Games Online Free. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -616,66 +251,25 @@
     {
         "@context": "https://schema.org",
         "@type": "Game",
-        "name": "2048 Games - Number Puzzle",
-        "description": "Play the best 2048 games online for free! Master the ultimate number puzzle challenge with our comprehensive guide, strategies, and premium gaming platform.",
-        "url": "https://www.freegamesflex.online/",
-        "genre": ["Puzzle", "Strategy", "Math"],
-        "playMode": "SinglePlayer",
+        "name": "2048 Games",
+        "description": "Play the best 2048 games online for free! Challenge your mind with this addictive number puzzle game.",
+        "url": "https://freegamesflex.online/",
         "publisher": {
             "@type": "Organization",
-            "name": "FreeGamesFlex",
-            "url": "https://www.freegamesflex.online/"
+            "name": "FreeGamesFlex"
         },
-        "applicationCategory": "Game",
-        "operatingSystem": "Web Browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "@type": "Offer",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "12847"
+        "gameItem": {
+            "@type": "SoftwareApplication",
+            "name": "2048 Number Puzzle Game",
+            "applicationCategory": "Game",
+            "operatingSystem": "Web Browser",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
         }
     }
-    </script>
-
-    <!-- Smooth Scrolling Script -->
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            observer.observe(el);
-        });
     </script>
 </body>
 </html>
