@@ -54,7 +54,7 @@
         .game-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -67,6 +67,20 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
+        /* Responsive adjustments for game container */
+        @media (max-width: 768px) {
+            .game-container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .game-container {
+                max-width: 700px;
+            }
+        }
+        
         .game-iframe-wrapper iframe {
             position: absolute;
             top: 0;
@@ -75,6 +89,7 @@
             height: 100%;
             border: none;
             border-radius: 20px;
+            background: white;
         }
         
         /* Feature cards hover effect */
@@ -99,6 +114,7 @@
         
         .loading-pulse {
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
     </style>
 </head>
@@ -150,7 +166,7 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8">
                 Start Playing 2048 Games Now
             </h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg">
                 No registration required. Play instantly in your browser on any device - desktop, tablet, or mobile.
             </p>
             
@@ -166,9 +182,12 @@
                 </div>
             </div>
             
-            <div class="text-center mt-8">
+            <div class="text-center mt-8 space-y-3">
+                <p class="text-base text-gray-600 font-medium">
+                    🎮 Use arrow keys on desktop or swipe on mobile to play
+                </p>
                 <p class="text-sm text-gray-500">
-                    Use arrow keys on desktop or swipe on mobile to play
+                    Tip: Keep your highest tile in a corner for better control
                 </p>
             </div>
         </div>
