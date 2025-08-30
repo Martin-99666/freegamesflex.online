@@ -60,8 +60,8 @@
         
         .game-iframe-wrapper {
             position: relative;
-            padding-bottom: 100%; /* 1:1 Aspect Ratio */
-            height: 0;
+            width: 100%;
+            height: 900px; /* Fixed height for desktop */
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -73,11 +73,24 @@
                 max-width: 100%;
                 padding: 0 20px;
             }
+            .game-iframe-wrapper {
+                height: 0;
+                padding-bottom: 110%; /* Slightly more than square for mobile to ensure full visibility */
+            }
         }
         
         @media (min-width: 769px) and (max-width: 1024px) {
             .game-container {
                 max-width: 700px;
+            }
+            .game-iframe-wrapper {
+                height: 700px;
+            }
+        }
+        
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .game-iframe-wrapper {
+                height: 850px;
             }
         }
         
@@ -90,6 +103,13 @@
             border: none;
             border-radius: 20px;
             background: white;
+            min-height: 600px; /* Ensure minimum height */
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe-wrapper iframe {
+                min-height: unset; /* Remove min-height on mobile */
+            }
         }
         
         /* Feature cards hover effect */
@@ -170,13 +190,14 @@
                 No registration required. Play instantly in your browser on any device - desktop, tablet, or mobile.
             </p>
             
-            <!-- Game Container -->
+            <!-- Game Container with aspect ratio box -->
             <div class="game-container">
                 <div class="game-iframe-wrapper loading-pulse">
                     <iframe 
                         src="https://2048game.com/?ref=google-search-classic&gad_source=1&gad_campaignid=12688850565&gbraid=0AAAAACnMrYa9OE1pKzdy0NLUpa_83uYnp&gclid=Cj0KCQjwwsrFBhD6ARIsAPnUFD1nqvcSwNBXOi2UGOZ5LbP3aonbsJYDjfnPiFQqj59Ows6djyXYS0MaAsl_EALw_wcB"
-                        title="2048 Game"
+                        title="2048 Game - Play the classic puzzle game"
                         loading="lazy"
+                        scrolling="yes"
                         allowfullscreen>
                     </iframe>
                 </div>
