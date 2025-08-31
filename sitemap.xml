@@ -3,14 +3,7 @@
   <url>
     <loc>https://freegamesflex.online/</loc>
     <lastmod>2025-08-31</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://freegamesflex.online/games/</loc>
-    <lastmod>2025-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- 添加更多页面URL -->
 </urlset>
